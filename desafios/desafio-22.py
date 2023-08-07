@@ -1,0 +1,6 @@
+nome = input('Insira seu nome completo: ')
+nomediv = (nome.split())
+print (nome.upper())
+print (nome.lower())
+print (len(nome.strip()))
+print (nomediv[0])
