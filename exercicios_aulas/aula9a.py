@@ -1,5 +1,5 @@
 frase = "vish kk"
-print (frase[2:6])
+print (frase[9:0:-1])
 #[9] - 1 caractere
 #[2:9] - vai do 2 até o 8
 #[2:9:2] - vai do 2 até 8 pulando de dois em dois
