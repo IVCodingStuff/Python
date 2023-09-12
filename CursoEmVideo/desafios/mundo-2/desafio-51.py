@@ -1,8 +1,9 @@
-s = int()
-pt = int(input('Primeiro Termo: '))
-r = int(input('Razão: '))
-r -= pt
+soma = int()
+primeirotermo = int(input('Primeiro Termo: '))
+razao = int(input('Razão: '))
+c = 1
 for c in range(1,11):
-    s = c
-    s = pt + (c-1) * r
-    print (s)
+    soma = (primeirotermo + (c-1)) * razao
+    print(soma, end=" -> ")
+    c += 1
+print('FIM')

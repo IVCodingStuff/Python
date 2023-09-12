@@ -7,6 +7,6 @@ tipocomb = input('Qual tipo de combustível quer abastecer? (E/G)')
     if tipocomb == 'G' or 'g':
         preco = litroscomb * 5.80
         print('Valor a ser pago: {}'.format(preco))
-else:
-    print('Tipo de combustível inválido')
+    else:
+        print('Tipo de combustível inválido')
 
