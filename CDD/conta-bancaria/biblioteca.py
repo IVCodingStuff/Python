@@ -9,7 +9,7 @@ class Conta:
         self.status_limite = False
 
     def depositar(self):
-        if self.status == True:
+        if self.status:
             deposito = float(input('Quanto quer depositar? '))
             self.saldo += deposito
             print('\n<< Saldo atual: {} >>'.format(self.saldo))
@@ -21,10 +21,13 @@ class Conta:
     def sacar(self):
         if self.status and self.saldo > 0:
             saque = float(input('\nQuanto quer sacar? '))
-            self.saldo -= saque
-            print('\nSAQUE LIBERADO\n<< Saldo atual: {} >>'.format(self.saldo))
-            saldo = self.saldo
-            return (saldo)
+            if saque <= self.saldo:
+                self.saldo -= saque
+                print('\nSAQUE LIBERADO\n<< Saldo atual: {} >>'.format(self.saldo))
+                saldo = self.saldo
+                return (saldo)
+            else:
+                print('\nSAQUE NEGADO --> SALDO INSUFICIENTE')
         elif self.status and self.saldo <= 0:
             print('\nSAQUE NEGADO --> SALDO INDISPONÍVEL')
         elif self.status and saque <= (self.saldo+self.limite):
@@ -41,10 +44,8 @@ class Conta:
     def verificar_saldo(self):
         if self.status == True and self.status_limite == False:
             print('\n<< Saldo atual: {} >>'.format(self.saldo))
-            print('Limite: Falso')
         elif self.status and self.status_limite:
             print('\n<< Saldo atual: {} >>'.format(self.saldo+self.limite))
-            print('Limite: true')
         else:
             print('\n<< CONTA DESATIVADA >>')
 
@@ -62,15 +63,17 @@ class Conta:
             self.status = False
             print('\n<< CONTA DESATIVADA COM SUCESSO >>')
         elif self.status and self.saldo > 0:
-
             print('\n<< DESATIVAÇÃO NEGADA\nRETIRE TODO O SALDO DISPONÍVEL E TENTE NOVAMENTE')
         elif self.status == False:
             print('\n<< CONTA JÁ ESTÁ DESATIVADA >>')
 
     def ativar_limite(self):
-        self.limite = 1000.0
-        self.status_limite = True
-        print('SEU LIMITE FOI LIBERADO!\n<< Saldo atual: {} >>'.format(self.saldo+self.limite))
+        if self.status:
+            self.limite = 1000.0
+            self.status_limite = True
+            print('SEU LIMITE FOI LIBERADO!\n<< Saldo atual: {} >>'.format(self.saldo+self.limite))
+        else:
+            print('LIBERAÇÃO DE LIMITE NEGADA\nATIVE SUA CONTA E TENTE NOVAMENTE.')
 
     def parar (self, continuar):
         print('\nSISTEMA FINALIZADO')
