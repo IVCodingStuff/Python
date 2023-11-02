@@ -1,4 +1,4 @@
-class Pessoa:
+class Tamagochi:
     def __init__(self, nome, peso, idade):
         self.nome = nome
         self.peso = peso
@@ -21,3 +21,6 @@ class Pessoa:
     def dormir(self):
         print('{} está dormindo'.format(self.dormindo))
         self.comendo = True
+    
+    def acordou(self):
+        print('{} acordou.'.format(self.nome))
