@@ -39,21 +39,21 @@ class Tamagotchi:
             self.dormindo = False
             print('{} acordou.'.format(self.nome))
         else:
-            print('{} Não está dormindo.'.format(self.nome))
+            print('{} não está dormindo.'.format(self.nome))
 
     def falou(self):
         if self.falando:
             self.falando = False
             print('{} parou de falar.'.format(self.nome))
         else:
-            print('{} Não está falando.'.format(self.nome))
+            print('{} não está falando.'.format(self.nome))
     
     def comeu(self):
         if self.comendo:
             self.comendo = False
             print('{} terminou de comer.'.format(self.nome))
         else:
-            print('{} Não está comendo.'.format(self.nome))
+            print('{} não está comendo.'.format(self.nome))
 
     def parar (self, continuar):
         print('\nTchauzinho!')

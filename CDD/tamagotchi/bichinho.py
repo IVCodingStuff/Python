@@ -15,6 +15,7 @@ while continuar:
                 bichinho.comer()
 
             if opcao == '2':
+                print('comeu')
                 bichinho.comeu()
 
             if opcao == '3':
@@ -33,4 +34,4 @@ while continuar:
                 continuar = bichinho.parar(continuar)
         else:
             print('Opção inválida.')
-        opcao = input('\nO que {} vai fazer? '.format(nome))
+            opcao = input('\nO que {} vai fazer? '.format(nome))
