@@ -7,7 +7,7 @@ print('===============')
 print ('   BANCO CDD')
 print('===============')
 while continuar:
-        print('\n1.Depositar\n2.Sacar\n3.Verificar o saldo\n4.Ativar conta\n5.Desativar conta\n6.Ativar limite\n7.Sair do sistema')
+        print('\n1.Depositar\n2.Sacar\n3.Verificar o saldo\n4.Ativar conta\n5.Desativar conta\n6. Ativar limite\n7.Sair do sistema')
         opcao = input('\nO que deseja fazer? ')
         if opcao in '1234567':
             if opcao == '1':
