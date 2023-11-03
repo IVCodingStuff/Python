@@ -1,4 +1,4 @@
-from biblioteca import *
+from biblioteca_tamagotchi import *
 idade = 1
 peso = 2.5
 continuar = True
