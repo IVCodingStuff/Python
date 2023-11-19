@@ -6,8 +6,3 @@ banco = mysql.connector.connect(
     database='academia_turma_d'
     )
 cursor = banco.cursor()
-
-cursor.execute("SELECT * FROM alunos")
-myresult = cursor.fetchall()
-for x in myresult:
-  print(x)

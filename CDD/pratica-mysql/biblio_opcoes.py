@@ -1,4 +1,5 @@
 from biblio_banco import *
+import os
 cursor = banco.cursor()
 
 def cadastrar_aluno(nome, cpf, telefone, email, endereco):
@@ -6,15 +7,18 @@ def cadastrar_aluno(nome, cpf, telefone, email, endereco):
     data = (nome, cpf, telefone, email, endereco)
     cursor.execute(cadastro_aluno, data)
     banco.commit()
+    os.system('cls')
+    print('\nAlunx cadastradx com sucesso.')
 
 def deletar_aluno(matricula):
     deletar = f'DELETE FROM alunos WHERE matricula = "{matricula}"'
     cursor.execute(deletar)
     banco.commit()
-    print('\nAlunx deletadx')
+    os.system('cls')
+    print('\nAlunx deletadx com sucesso.')
 
 def consultar_alunos():
-    print('\n')
+    print('')
     consulta_personal = 'SELECT * FROM alunos;'
     cursor.execute(consulta_personal)
     resultado = cursor.fetchall()
@@ -26,12 +30,15 @@ def cadastrar_funcionario(nome, cpf_funcionario, departamento, salario, filhos):
     data = (nome, cpf_funcionario, departamento, salario, filhos)
     cursor.execute(cadastro_funcionario, data)
     banco.commit()
+    os.system('cls')
+    print('Funcionárix cadastradx com sucesso.')
 
 def deletar_funcionario(id_funcionario):
     deletar = f'DELETE FROM func WHERE id_funcionario = "{id_funcionario}"'
     cursor.execute(deletar)
     banco.commit()
-    print('Funcionárix deletadx')
+    os.system('cls')
+    print('Funcionárix deletadx com sucesso.')
 
 def consultar_funcionario():
     print('\n')
@@ -40,15 +47,19 @@ def consultar_funcionario():
     resultado = cursor.fetchall()
     for x in resultado:
         print(x)
+
 def cadastrar_modalidade(nome):
-    cadastro_modalidade = f'insert into modalidades (nome) values ("{nome}"));'
+    cadastro_modalidade = f'INSERT into modalidades (nome) VALUES ("{nome}");'
     cursor.execute(cadastro_modalidade)
     banco.commit()
+    os.system('cls')
+    print('\nModalidade cadastrada com sucesso.')
 
 def deletar_modalidade(id_modalidade):
     deletar = f'DELETE FROM modalidades WHERE id_mod = "{id_modalidade}"'
     cursor.execute(deletar)
     banco.commit()
+    os.system('cls')
     print('Modalidade deletada')
 
 def consultar_modalidade():
@@ -64,12 +75,15 @@ def cadastrar_personal(cpf, cref, nome, telefone, email):
     data = (cpf, cref, nome, telefone, email)
     cursor.execute(cadastro_personal, data)
     banco.commit()
+    os.system('cls')
+    print('Personal cadastradx com sucesso.')
 
 def deletar_personal(cpf):
     deletar = f'DELETE FROM personal WHERE cpf = "{cpf}"'
     cursor.execute(deletar)
     banco.commit()
-    print('Personal deletadx')
+    os.system('cls')
+    print('Personal deletadx com sucesso.')
 
 def consultar_personal():
     print('\n')
@@ -81,7 +95,8 @@ def consultar_personal():
 
 def sair_programa(continuar):
     continuar = False
-    print('Sistema Finalizado')
+    os.system('cls')
+    print('\nSistema Finalizado')
     cursor.close()
     banco.close()
     return continuar
