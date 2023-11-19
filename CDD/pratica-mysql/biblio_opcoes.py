@@ -1,44 +1,63 @@
 from biblio_banco import *
+cursor = banco.cursor()
 
 def cadastrar_aluno(nome, cpf, telefone, email, endereco):
     cadastro_aluno = 'insert into alunos (nome, cpf, telefone, email, endereco) values (%s, %s, %s, %s,%s);'
     data = (nome, cpf, telefone, email, endereco)
     cursor.execute(cadastro_aluno, data)
     banco.commit()
-def deletar_aluno(matricula):
-    deletar_aluno = (f'delete from alunos where matricula = {matricula};')
-    data_matricula = (matricula, )
-    cursor.execute(deletar_aluno)
-def consultar_alunos():
-    consulta_alunos = 'select * from alunos;'
-    cursor.execute(consulta_alunos)
 
-def cadastrar_funcionario(id_funcionario,nome, cpf_funcionario, departamento, salario, filhos):
-    cadastro_funcionario = 'insert into func (id_funcionario,nome, cpf_funcionario, departamento, salario, filhos) values (%s, %s, %s, %s,%s, %s);'
-    data = (id_funcionario,nome, cpf_funcionario, departamento, salario, filhos)
+def deletar_aluno(matricula):
+    deletar = f'DELETE FROM alunos WHERE matricula = "{matricula}"'
+    cursor.execute(deletar)
+    banco.commit()
+    print('\nAlunx deletadx')
+
+def consultar_alunos():
+    print('\n')
+    consulta_personal = 'SELECT * FROM alunos;'
+    cursor.execute(consulta_personal)
+    resultado = cursor.fetchall()
+    for x in resultado:
+        print(x)
+    
+def cadastrar_funcionario(nome, cpf_funcionario, departamento, salario, filhos):
+    cadastro_funcionario = 'insert into func (nome, cpf_funcionario, departamento, salario, filhos) values (%s, %s, %s,%s, %s);'
+    data = (nome, cpf_funcionario, departamento, salario, filhos)
     cursor.execute(cadastro_funcionario, data)
     banco.commit()
+
 def deletar_funcionario(id_funcionario):
-    data = id_funcionario
-    deletar_funcionario = ('delete from func where id_funcionario = (%s);')
-    cursor.execute(deletar_funcionario,data)
+    deletar = f'DELETE FROM func WHERE id_funcionario = "{id_funcionario}"'
+    cursor.execute(deletar)
+    banco.commit()
+    print('Funcionárix deletadx')
+
 def consultar_funcionario():
-    consulta_funcionario = 'select * from func;'
+    print('\n')
+    consulta_funcionario = 'SELECT * FROM func;'
     cursor.execute(consulta_funcionario)
+    resultado = cursor.fetchall()
+    for x in resultado:
+        print(x)
 def cadastrar_modalidade(nome):
-    cadastro_modalidade = 'insert into modalidades (nome) values (%s);'
-    data = (nome)
-    cursor.execute(cadastro_modalidade, data)
+    cadastro_modalidade = f'insert into modalidades (nome) values ("{nome}"));'
+    cursor.execute(cadastro_modalidade)
     banco.commit()
 
 def deletar_modalidade(id_modalidade):
-    data = id_modalidade
-    deletar_modalidade = ('delete from modalidades where id_modalidade = (%s);')
-    cursor.execute(deletar_modalidade, data)
+    deletar = f'DELETE FROM modalidades WHERE id_mod = "{id_modalidade}"'
+    cursor.execute(deletar)
+    banco.commit()
+    print('Modalidade deletada')
 
 def consultar_modalidade():
-    consulta_modalidade = 'select * from modalidades;'
+    print('\n')
+    consulta_modalidade = 'SELECT * FROM personal;'
     cursor.execute(consulta_modalidade)
+    resultado = cursor.fetchall()
+    for x in resultado:
+        print(x)
 
 def cadastrar_personal(cpf, cref, nome, telefone, email):
     cadastro_personal = 'insert into personal (cpf, cref, nome, telefone, email) values (%s, %s, %s, %s,%s);'
@@ -47,20 +66,23 @@ def cadastrar_personal(cpf, cref, nome, telefone, email):
     banco.commit()
 
 def deletar_personal(cpf):
-    data = cpf
-    deletar_personal = ('delete * from personal where cpf = (%s);')
-    cursor.execute(deletar_personal, data)
+    deletar = f'DELETE FROM personal WHERE cpf = "{cpf}"'
+    cursor.execute(deletar)
+    banco.commit()
+    print('Personal deletadx')
 
 def consultar_personal():
-    consulta_personal = 'select * from personal;'
+    print('\n')
+    consulta_personal = 'SELECT * FROM personal;'
     cursor.execute(consulta_personal)
     resultado = cursor.fetchall()
     for x in resultado:
         print(x)
 
-def sair_programa():
+def sair_programa(continuar):
+    continuar = False
     print('Sistema Finalizado')
     cursor.close()
     banco.close()
-
+    return continuar
 
