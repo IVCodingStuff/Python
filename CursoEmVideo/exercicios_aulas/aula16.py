@@ -1,4 +1,4 @@
-'''#tuplas são imutáveis
+'''#tuplas são imutáveis, pode ser escrita sem parênteses
 lanche = ('hamburguer', 'suco', 'pizza', 'pudim')
 
 for c in lanche:
@@ -18,7 +18,8 @@ c = a + b
 print (c)
 print (len(c))
 print (c.index(5))
-print (c.index(6,4))
+print (c.index(6,4)) 
+""" O segundo número indica de onde começa a contar"""
 del (c)
 c = ('Mudou')
 print(c)

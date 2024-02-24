@@ -1,4 +1,6 @@
-times = ('Botafogo', 'Bragantino', 'Grêmio', 'Palmeiras', 'Flamengo', 'Fortaleza', 'Athletico-PR', 'Atlético-MG', 'São Paulo', 'Cuiabá', 'Internacional', 'Corinthias', 'Santos', 'Cruzeiro', 'Bahia', 'Vasco da Gama', 'Góias', 'Coritiba', 'América-MG')
+"""Info da tabela do Campeonato Brasileiro de Futebol"""
+
+times = ('Botafogo', 'Bragantino', 'Grêmio', 'Palmeiras', 'Flamengo', 'Fortaleza', 'Athletico-PR', 'Atlético-MG', 'São Paulo', 'Cuiabá', 'Internacional', 'Corinthias', 'Santos', 'Cruzeiro', 'Bahia', 'Vasco da Gama', 'Góias', 'Coritiba', 'América-MG')""""""
 print('Primeiros colocados:')
 
 for a in range(5):

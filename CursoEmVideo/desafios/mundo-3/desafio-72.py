@@ -1,3 +1,5 @@
+"""Mostra o número digitado por extenso"""
+
 num = int(input('Insira um número de 0 a 20:'))
 numeros = ('zero','um', 'dois', 'três', 'quatro','cinco', 'seis', 'sete', 'oito', 'nove','dez', 'onze', 'doze', 'treze', 'catorze', 'quinze', 'dezesseis', 'dezesete', 'dezoito', 'deznove', "vinte")
 while True:
