@@ -1,6 +1,6 @@
 exp = (str(input('Digite a expressão: ')))
 parenteses = []
-for c in exp 
+for c in exp:
     if c == '(':
         parenteses.append('(')
     elif c ==')':
